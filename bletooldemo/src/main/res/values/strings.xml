@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BleTool</string>
+    <string name="rssi">RSSI：%1$d</string>
+</resources>
