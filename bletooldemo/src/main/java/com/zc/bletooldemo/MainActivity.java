@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zc.zbletool.Beacon;
 import com.zc.zbletool.BleManager;
 import com.zc.zbletool.ScanResult;
 
@@ -20,6 +22,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Bind(R.id.rv_devices)
     RecyclerView rvDevices;
@@ -55,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 Collections.sort(scanResults, new ComparatorScanResultByRssi());
                 adapter.refreshData(scanResults);
                 toolbarCount.setText("(" + scanResults.size() + ")");
+            }
+
+            @Override
+            public void onScanBeaconsCallBack(ArrayList<Beacon> beacons) {
+                Log.i(TAG, "beacons.size = " + beacons.size());
             }
         });
     }
