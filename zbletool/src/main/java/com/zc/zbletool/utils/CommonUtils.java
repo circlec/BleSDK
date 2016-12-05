@@ -25,9 +25,10 @@ public class CommonUtils {
 		ActivityManager activityManager = (ActivityManager) mContext
 				.getSystemService(Context.ACTIVITY_SERVICE);
 		List<ActivityManager.RunningServiceInfo> serviceList = activityManager
-				.getRunningServices(40);
+				.getRunningServices(200);
 		int size = serviceList.size();
 		for (int i = 0; i < size; i++) {
+			BleL.d(serviceList.get(i).service.getClassName());
 			if (serviceList.get(i).service.getClassName().equals(className) == true) {
 				isRun = true;
 				break;

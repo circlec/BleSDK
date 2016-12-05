@@ -10,6 +10,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.zc.zbletool.service.UartService;
+import com.zc.zbletool.utils.BleL;
 import com.zc.zbletool.utils.CommonUtils;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class BleConnection {
 
 		public void onServiceConnected(ComponentName className,
 				IBinder rawBinder) {
-
+			Log.d(TAG, "onServiceConnected");
 			mAprilBeaconService = ((UartService.LocalBinder) rawBinder)
 					.getService();
 
@@ -63,12 +64,11 @@ public class BleConnection {
 	 */
 	public static void disConnect() {
 		if (CommonUtils.isServiceRun(context,
-				"com.zc.blesdk.service.UartService")) {
+				"com.zc.zbletool.service.UartService")) {
 			context.unbindService(mAprilBeaconServiceConnection);
 		}
 		if (mAprilBeaconService != null) {
 			mAprilBeaconService.disconnect();
-			mAprilBeaconService.close();
 			mAprilBeaconService.stopSelf();
 			mAprilBeaconService = null;
 		}

@@ -43,6 +43,7 @@ public class UartService extends Service {
                 intentAction = Contants.BLESDK_ACTION_GATT_DISCONNECTED;
                 BleL.i("Disconnected from GATT server.");
                 broadcastUpdate(intentAction);
+                close();
             }
         }
 
@@ -158,6 +159,7 @@ public class UartService extends Service {
     @Override
     public boolean onUnbind(Intent intent) {
         close();
+        BleL.i("onUnbind");
         return super.onUnbind(intent);
     }
 
@@ -220,7 +222,7 @@ public class UartService extends Service {
         // mBluetoothGatt.close();
     }
 
-    public void close() {
+    private void close() {
         if (mBluetoothGatt == null) {
             return;
         }
