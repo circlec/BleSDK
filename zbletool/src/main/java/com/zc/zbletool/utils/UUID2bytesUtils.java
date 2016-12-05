@@ -40,6 +40,6 @@ public class UUID2bytesUtils {
             chs[k++] = HEX[(bytes[i] & 0xf0) >> 4];
             chs[k++] = HEX[(bytes[i] & 0xf)];
         }
-        return new String(chs);
+        return new String(chs).toUpperCase();
     }
 }

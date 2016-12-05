@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.zc.zbletool.Beacon;
 import com.zc.zbletool.BleManager;
@@ -74,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClickListener(View v, int position) {
-                Toast.makeText(MainActivity.this, "position = " + position, Toast.LENGTH_SHORT).show();
                 bleManager.stopBleScan();
                 Intent intent = new Intent(MainActivity.this, DeviceDetailActivity.class);
                 intent.putExtra("scanResult", scanResults.get(position));

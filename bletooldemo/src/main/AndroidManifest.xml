@@ -15,7 +15,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DeviceDetailActivity"></activity>
+        <activity android:name=".DeviceDetailActivity" />
+        <activity android:name=".OperateActivity"/>
+
+        <service
+            android:name="com.zc.zbletool.service.UartService"
+            android:enabled="true"
+            android:persistent="true">
+            <meta-data
+                android:name="background"
+                android:value="true" />
+        </service>
     </application>
 
 </manifest>
