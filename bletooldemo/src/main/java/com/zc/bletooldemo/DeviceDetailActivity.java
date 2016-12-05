@@ -230,7 +230,7 @@ public class DeviceDetailActivity extends AppCompatActivity implements View.OnCl
                     .toString().toUpperCase();
             if (!TextUtils.isEmpty(uuid))
                 tv_expend_char_uuid.setText(uuid);
-            String name_c = BleNamesResolver.resolveCharacteristicName(uuid.toLowerCase());
+            String name_c = BleNamesResolver.resolveCharacteristicName(uuid.toUpperCase());
             if (TextUtils.isEmpty(name_c)) {
                 tv_expend_char_name.setText("Unknown Characteristic");
             } else {
@@ -304,7 +304,7 @@ public class DeviceDetailActivity extends AppCompatActivity implements View.OnCl
                     .toUpperCase());
             String name = BleNamesResolver
                     .resolveServiceName(bluetoothGattService.getUuid()
-                            .toString().toLowerCase());
+                            .toString().toUpperCase());
             if (TextUtils.isEmpty(name)) {
                 tv_name.setText("Unknown Service");
             } else {
