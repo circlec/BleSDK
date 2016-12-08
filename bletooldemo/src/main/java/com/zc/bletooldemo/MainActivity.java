@@ -108,4 +108,12 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onStop();
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (!bleManager.isStartScan()) {
+            startScan();
+        }
+    }
 }

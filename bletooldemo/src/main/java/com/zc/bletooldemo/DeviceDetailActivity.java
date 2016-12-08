@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -127,6 +128,7 @@ public class DeviceDetailActivity extends AppCompatActivity implements View.OnCl
             }
 
             if (action.equals(Contants.BLESDK_ACTION_DATA_RESET)) {// 重启成功--修改成功广播
+                Log.i("Test","BLESDK_ACTION_DATA_RESET");
             }
 
             // *********************//
@@ -140,16 +142,20 @@ public class DeviceDetailActivity extends AppCompatActivity implements View.OnCl
             }
             // *********************//
             if (action.equals(Contants.BLESDK_ACTION_DATA_AVAILABLE)) {// 接收值读取时的广播
+                Log.i("Test","BLESDK_ACTION_DATA_AVAILABLE");
 
             }
             if (action.equals(Contants.BLESDK_ACTION_DATA_CHANGE)) {// 接收值改变时的广播
+                Log.i("Test","BLESDK_ACTION_DATA_CHANGE");
 
             }
             if (action.equals(Contants.BLESDK_ACTION_DATA_WRITE)) {// 接收值写入时的广播
+                Log.i("Test","BLESDK_ACTION_DATA_WRITE");
             }
 
             // *********************//
             if (action.equals(Contants.BLESDK_DEVICE_DOES_NOT_SUPPORT_UART)) {// 设备不支持UART时的广播
+                Log.i("Test","BLESDK_DEVICE_DOES_NOT_SUPPORT_UART");
 
             }
             if (action.equals(Contants.BLESDK_ACTION_READ_REMOTE_RSSI)) {// 读取RSSI
